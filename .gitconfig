@@ -1,0 +1,11 @@
+[pull]
+	rebase = true
+	ff = true
+[core]
+	excludesfile = /Users/atul/.oma_gitignore_global
+	pager = delta --line-numbers --dark
+[user]
+	name = atulsingh0
+	email = 3430610+atulsingh0@users.noreply.github.com
+[push]
+	autoSetupRemote = true
