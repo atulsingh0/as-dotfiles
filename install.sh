@@ -25,8 +25,6 @@ export homedir=$user_homedir
 # dotfiles directory
 export dotfiledir=${homedir}/${user_dotfiles_dir}
 
-
-
 # Setting up OH-MY-ALIASES
 git clone https://github.com/atulsingh0/oh-my-aliases.git ~/.ohmyaliases
 
@@ -39,3 +37,7 @@ if [ "$(uname)" = "Darwin" ]; then
     # calling macos script
     sh mac-setup.sh
 fi
+
+# Last Calling Common Script
+echo "Calling common installation script"
+sh common.sh
