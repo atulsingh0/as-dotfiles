@@ -12,8 +12,8 @@ if command -v kubectl; then
         tar zxvf "${KREW}.tar.gz" &&
         ./"${KREW}" install krew
 
-    echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >>$HOME/.zshrc
-    . $HOME/.zshrc
+    echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >>"$HOME"/.zshrc
+    . "$HOME"/.zshrc
 
     # installing plugins
     kubectl krew install preflight
@@ -24,5 +24,5 @@ fi
 
 # helm plugin
 if command -v helm; then
-    helm plugin install https://github.com/helm-unittest/helm-unittest --version 0.2.8
+    helm plugin install https://github.com/helm-unittest/helm-unittest --version 0.2.11
 fi
