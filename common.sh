@@ -18,6 +18,7 @@ if command -v kubectl; then
     # installing plugins
     kubectl krew install preflight
     kubectl krew install support-bundle
+    kubectl krew install who-can
 
     echo "====>>> Install sbctl tool manually from https://github.com/replicatedhq/sbctl"
 fi
