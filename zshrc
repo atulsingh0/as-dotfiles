@@ -1,4 +1,18 @@
-ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
+# function to reload
+reload(){
+    source ~/.zshrc
+}
+
+# Loading Few plugins
+[ -f $HOME/.config/powerlevel10k/powerlevel10k.zsh-theme ] && source $HOME/.config/powerlevel10k/powerlevel10k.zsh-theme
+[ -f $HOME/.config/kube-ps1.sh ] && source $HOME/.config/kube-ps1.sh && RPROMPT='$(kube_ps1)'
+[ -f $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] &&  source  $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+[ -f $HOME/.config/history-search-multi-word/H-S-MW.plugin.zsh ] &&  source  $HOME/.config/history-search-multi-word/H-S-MW.plugin.zsh
+[ -f $HOME/.config/zsh-autosuggestions/zsh-autosuggestions.zsh ] &&  source  $HOME/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $HOME/.config/zsh-completions/zsh-completions.plugin.zsh ] &&  source  $HOME/.config/zsh-completions/zsh-completions.plugin.zsh
+[ -f $HOME/.config/zsh-history-substring-search/zsh-history-substring-search.zsh ] &&  source  $HOME/.config/zsh-history-substring-search/zsh-history-substring-search.zsh
+[ -f $HOME/.config/.p10k.zsh ] && source $HOME/.config/.p10k.zsh
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -7,30 +21,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# setting up custom env
+export CUSTOM_ALIAS_FOLDER="/Users/atul/work/myJournal/personal"
+
+# aliases
+if [ -f "$HOME/work/oh-my-aliases/source-aliases.sh" ]; then . "$HOME/work/oh-my-aliases/source-aliases.sh"; fi
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/Users/atul/Downloads/TextMate_2.0.23/TextMate.app/Contents/MacOS/mate:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search)
-source $ZSH/oh-my-zsh.sh
-
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:/Users/atul/Downloads/TextMate_2.0.23/TextMate.app/Contents/MacOS/mate:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/atul/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/atul/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/atul/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/atul/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
-
-# Created by `pipx` on 2023-03-21 20:42:26
-export PATH="$PATH:/Users/atul/.local/bin"
-
-# setting up custom env
-export CUSTOM_ALIAS_FOLDER="/Users/atul/work/myJournal/personal"
-
-# aliases
-if [ -f '/Users/atul/work/oh-my-aliases/source-aliases.sh' ]; then . '/Users/atul/work/oh-my-aliases/source-aliases.sh'; fi
