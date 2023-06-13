@@ -17,7 +17,6 @@ if [ ! -f $HOME/.config/lsg ]; then
   curl https://raw.githubusercontent.com/gerph/ls-with-git-status/master/lsg -o $HOME/.config/lsg
   chmod u+x $HOME/.config/lsg
 fi
-export PATH=$PATH:$HOME/.config
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -33,7 +32,7 @@ export CUSTOM_ALIAS_FOLDER="/Users/atul/work/myJournal/personal"
 if [ -f "$HOME/work/oh-my-aliases/source-aliases.sh" ]; then . "$HOME/work/oh-my-aliases/source-aliases.sh"; fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:/Users/atul/Downloads/TextMate_2.0.23/TextMate.app/Contents/MacOS/mate:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.config:${KREW_ROOT:-$HOME/.krew}/bin:/Users/atul/Downloads/TextMate_2.0.23/TextMate.app/Contents/MacOS/mate:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/atul/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/atul/Downloads/google-cloud-sdk/path.zsh.inc'; fi
