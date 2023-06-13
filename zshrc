@@ -1,6 +1,6 @@
 # function to reload
 reload(){
-    source ~/.zshrc
+    source $HOME/.zshrc
 }
 
 # Loading Few plugins
@@ -10,9 +10,14 @@ reload(){
 [ -f $HOME/.config/history-search-multi-word/H-S-MW.plugin.zsh ] &&  source  $HOME/.config/history-search-multi-word/H-S-MW.plugin.zsh
 [ -f $HOME/.config/zsh-autosuggestions/zsh-autosuggestions.zsh ] &&  source  $HOME/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f $HOME/.config/zsh-completions/zsh-completions.plugin.zsh ] &&  source  $HOME/.config/zsh-completions/zsh-completions.plugin.zsh
-[ -f $HOME/.config/zsh-history-substring-search/zsh-history-substring-search.zsh ] &&  source  $HOME/.config/zsh-history-substring-search/zsh-history-substring-search.zsh
+[ -f $HOME/.config/zsh-history-substring-search/zsh-history-substring-search.zsh ] &&  source $HOME/.config/zsh-history-substring-search/zsh-history-substring-search.zsh
 [ -f $HOME/.config/.p10k.zsh ] && source $HOME/.config/.p10k.zsh
 
+if [ ! -f $HOME/.config/lsg ]; then
+  curl https://raw.githubusercontent.com/gerph/ls-with-git-status/master/lsg -o $HOME/.config/lsg
+  chmod u+x $HOME/.config/lsg
+fi
+export PATH=$PATH:$HOME/.config
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
